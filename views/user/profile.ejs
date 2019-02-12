@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1>User Profile</h1>
+        <hr>
+        <h2>My Orders</h2>
+        <% orders.forEach(function(order){ %>
+            <div class="card text-center">
+                <div class="card-body">
+                    <ul class="list-group">
+                        <% order.items.forEach(function(item){ %>
+                            <li class="list-group-item">
+                                <%= item.item.title %> | <%= item.qty %> Units
+                                <span class="badge">$<%= item.price %></span>
+                            </li>
+                        <% }) %>
+                    </ul>
+                </div>
+                <div class="card-footer text-muted">
+                    <strong>Total Price:$<%= order.cart.totalPrice %></strong></div>
+              </div>
+        <% }) %>
+    </div>
+</div>
+
+<% include ../partials/footer %>

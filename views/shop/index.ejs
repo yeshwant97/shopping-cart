@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+<div class="row">
+    <div class="col-md-4 col-sm-6 offset-md-4 offset-sm-3">
+        <div id="success" role="alert" class="alert-success">
+            <%= successMsg %>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <% products.forEach(function(Product){ %>
+            <div class="col-md-4 col-sm-6">
+                <div class="img-thumbnail">
+                    <img class="img-responsive" src="<%= Product.image %>">
+                    <div class="caption">
+                        <h3>thumbnail</h3>
+                        <p class="description"><%= Product.description %></p>
+                        <div class="clearfix">
+                            <div class="price float-left">$<%= Product.price %></div>
+                            <a href="/add-to-cart/<%= Product._id %>" class="btn btn-success float-right" role="button">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+        
+        
+  
+
+<% include ../partials/footer %>
